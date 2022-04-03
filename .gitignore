@@ -58,11 +58,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-Unnamed RPG/Library/ArtifactDB
-Unnamed RPG/Library/Artifacts/31/31ca5b4dd34d09e249ed78264222a56a
-Unnamed RPG/Library/ArtifactDB
-Unnamed RPG/Library/ArtifactDB
-Unnamed RPG/Library/Artifacts/4d/4df6869c9b1e435185f281db7f9fabcd
+"Unnamed RPG"/Library/ArtifactDB
+"Unnamed RPG"/Library/Artifacts/31/31ca5b4dd34d09e249ed78264222a56a
+"Unnamed RPG"/Library/Artifacts/4d/4df6869c9b1e435185f281db7f9fabcd
 Unnamed RPG/Library/ArtifactDB
 *.log
 *.log
