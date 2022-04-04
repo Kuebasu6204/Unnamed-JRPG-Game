@@ -3,7 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 "Unnamed RPG"/[Ll]ibrary/
-"Unnamed RPG"/[Tt]emp/
+Unnamed RPG/[Tt]emp/
 "Unnamed RPG"/[Oo]bj/
 "Unnamed RPG"/[Bb]uild/
 "Unnamed RPG"/[Bb]uilds/
