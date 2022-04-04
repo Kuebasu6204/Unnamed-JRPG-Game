@@ -10,6 +10,7 @@ public enum BattleState { START, PLAYER, ENEMY, WIN, LOSE}
 public class BattleSystem : MonoBehaviour
 {
     public GameObject player;
+    
     public GameObject enemy;
 
     public Text dialogueText;
@@ -64,14 +65,27 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator Attack()
     {
+
+        Vector3 p = player.GetComponent<Transform>().position;
+        Vector3 e = enemy.GetComponent<Transform>().position;
+
+        player.GetComponent<Transform>().position = new Vector3(e.x - 2, e.y, e.z);
+
+        yield return new WaitForSeconds(1);
+
         bool isDead = enemy.GetComponent<Unit>().takeDamage(player.GetComponent<Unit>().attack);
         enemyHUD.setHUD(enemy.GetComponent<Unit>());
 
         dialogueText.text = enemy.GetComponent<Unit>().unitName + " recieved damage!";
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
-        if(isDead)
+        player.GetComponent<Transform>().position = p;
+        dialogueText.text = "";
+
+        yield return new WaitForSeconds(.5f);
+
+        if (isDead)
         {
             state = BattleState.WIN;
             dialogueText.text = "YOU WIN!!!";
@@ -92,7 +106,7 @@ public class BattleSystem : MonoBehaviour
 
         dialogueText.text = "You heal yourself.";
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         state = BattleState.ENEMY;
         StartCoroutine(EnemyTurn());
@@ -100,14 +114,27 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
+        Vector3 p = player.GetComponent<Transform>().position;
+        Vector3 e = enemy.GetComponent<Transform>().position;
+
+        enemy.GetComponent<Transform>().position = new Vector3(p.x + 2, p.y, p.z);
+
+        yield return new WaitForSeconds(1);
+
         dialogueText.text = enemy.GetComponent<Unit>().unitName + " is attacking!!";
 
         yield return new WaitForSeconds(1);
 
         bool isDead = player.GetComponent<Unit>().takeDamage(enemy.GetComponent<Unit>().attack);
         playerHUD.setHUD(player.GetComponent<Unit>());
+        dialogueText.text = player.GetComponent<Unit>().unitName + " recieved damage!!";
 
         yield return new WaitForSeconds(1);
+
+        enemy.GetComponent<Transform>().position = e;
+        dialogueText.text = "";
+
+        yield return new WaitForSeconds(.5f);
 
         if (isDead)
         {
