@@ -54,6 +54,14 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(Attack());
     }
 
+    public void OnHeal()
+    {
+        if (state != BattleState.PLAYER)
+            return;
+
+        StartCoroutine(Heal());
+    }
+
     IEnumerator Attack()
     {
         bool isDead = enemy.GetComponent<Unit>().takeDamage(player.GetComponent<Unit>().attack);
@@ -75,6 +83,19 @@ public class BattleSystem : MonoBehaviour
             //continue to enemy turn
             StartCoroutine(EnemyTurn());
         }
+    }
+
+    IEnumerator Heal()
+    {
+        player.GetComponent<Unit>().health += 10;
+        playerHUD.setHUD(player.GetComponent<Unit>());
+
+        dialogueText.text = "You heal yourself.";
+
+        yield return new WaitForSeconds(2);
+
+        state = BattleState.ENEMY;
+        StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
