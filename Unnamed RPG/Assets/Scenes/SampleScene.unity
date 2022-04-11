@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.18, y: 29.46}
-  m_SizeDelta: {x: 259.73, y: 42.93}
+  m_AnchoredPosition: {x: 172.55, y: 29.46}
+  m_SizeDelta: {x: 226.47, y: 42.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382376191
 MonoBehaviour:
@@ -490,12 +490,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532064028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.14, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 140.76, y: 0, z: -3060}
+  m_LocalScale: {x: 34, y: 34, z: 34}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 917024402}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &532064031
 MonoBehaviour:
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 673253315}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,12 +670,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673253311}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -140.76, y: 0, z: -3060}
+  m_LocalScale: {x: 34, y: 34, z: 34}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 917024402}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &673253314
 MonoBehaviour:
@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+  maxTime: 5
 --- !u!114 &673253315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,8 +744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -157, y: -0.00045776}
-  m_SizeDelta: {x: 223.3473, y: 52.656}
+  m_AnchoredPosition: {x: -142.18, y: -0.00045776}
+  m_SizeDelta: {x: 193.71, y: 52.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721232923
 MonoBehaviour:
@@ -929,8 +930,10 @@ RectTransform:
   - {fileID: 1468993621}
   - {fileID: 1809768369}
   - {fileID: 2146799225}
+  - {fileID: 673253313}
+  - {fileID: 532064030}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1001,7 +1004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1054241472
 GameObject:
@@ -1116,6 +1119,7 @@ MonoBehaviour:
   dialogueText: {fileID: 584215921}
   playerHUD: {fileID: 1468993624}
   enemyHUD: {fileID: 1809768372}
+  qte: {fileID: 5899354251010810370, guid: dce3ec21304ba425e9ef4a06ae9f7d20, type: 3}
   state: 0
 --- !u!4 &1397547530
 Transform:
@@ -1129,7 +1133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468993620
 GameObject:
@@ -1144,7 +1148,7 @@ GameObject:
   - component: {fileID: 1468993622}
   - component: {fileID: 1468993624}
   m_Layer: 5
-  m_Name: Player
+  m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1167,7 +1171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293, y: 158}
+  m_AnchoredPosition: {x: -256, y: 130}
   m_SizeDelta: {x: 87.9155, y: 52.6551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1468993622
@@ -1192,7 +1196,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1337,8 +1341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158, y: -2}
-  m_SizeDelta: {x: 223.3473, y: 52.656}
+  m_AnchoredPosition: {x: 144.11, y: -0.0004425}
+  m_SizeDelta: {x: 195.56, y: 52.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726214924
 MonoBehaviour:
@@ -1465,8 +1469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.18001, y: -21.465}
-  m_SizeDelta: {x: 259.73, y: 42.93}
+  m_AnchoredPosition: {x: 172.55002, y: -21.465}
+  m_SizeDelta: {x: 226.47, y: 42.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768887025
 MonoBehaviour:
@@ -1575,7 +1579,7 @@ GameObject:
   - component: {fileID: 1809768370}
   - component: {fileID: 1809768372}
   m_Layer: 5
-  m_Name: Enemy
+  m_Name: EnemyHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 293, y: 158}
+  m_AnchoredPosition: {x: 276.04, y: 130}
   m_SizeDelta: {x: 87.9155, y: 52.6551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809768370
@@ -1623,7 +1627,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1773,8 +1777,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010376, y: -114.77}
-  m_SizeDelta: {x: 673.92, y: 129.55}
+  m_AnchoredPosition: {x: -0.21, y: -93.44}
+  m_SizeDelta: {x: 599.49, y: 114.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2146799226
 MonoBehaviour:

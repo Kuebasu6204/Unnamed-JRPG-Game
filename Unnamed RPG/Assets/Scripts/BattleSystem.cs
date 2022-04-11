@@ -10,6 +10,7 @@ public enum BattleState { START, PLAYER, ENEMY, WIN, LOSE}
 public class BattleSystem : MonoBehaviour
 {
     public GameObject player;
+
     
     public GameObject enemy;
 
@@ -17,6 +18,8 @@ public class BattleSystem : MonoBehaviour
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
+
+    public GameObject qte;
 
     
 
@@ -69,19 +72,30 @@ public class BattleSystem : MonoBehaviour
         Vector3 p = player.GetComponent<Transform>().position;
         Vector3 e = enemy.GetComponent<Transform>().position;
 
+        
+
         player.GetComponent<Transform>().position = new Vector3(e.x - 2, e.y, e.z);
 
         yield return new WaitForSeconds(1);
+
+        GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x - 2.2f, player.transform.position.y + 1.3f, player.transform.position.z), Quaternion.identity);
+        prompt.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
+
+        prompt.GetComponent<QTESystem>().onQTE();
+
+
+
 
         bool isDead = enemy.GetComponent<Unit>().takeDamage(player.GetComponent<Unit>().attack);
         enemyHUD.setHUD(enemy.GetComponent<Unit>());
 
         dialogueText.text = enemy.GetComponent<Unit>().unitName + " recieved damage!";
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
 
         player.GetComponent<Transform>().position = p;
         dialogueText.text = "";
+        
 
         yield return new WaitForSeconds(.5f);
 
