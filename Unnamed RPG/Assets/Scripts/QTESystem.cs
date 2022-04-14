@@ -71,6 +71,13 @@ public class QTESystem : MonoBehaviour
                 image.color = Color.cyan;
                 break;
             }
+            else if(Input.anyKeyDown)
+            {
+                success = false;
+                image.fillAmount = 1;
+                image.color = Color.red;
+                break;
+            }
             time = time + Time.deltaTime;
             image.fillAmount = 1 - (time / 3);
 
