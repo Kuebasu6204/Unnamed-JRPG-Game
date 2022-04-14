@@ -28,12 +28,14 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
+        Debug.Log("IT SHOULD WORK!");
         StartCoroutine(SetUpBattle());
         
     }
 
     IEnumerator SetUpBattle()
     {
+        Debug.Log("Works here too");
         dialogueText.text = "A wild " + enemy.GetComponent<Unit>().unitName + " appears!";
         playerHUD.setHUD(player.GetComponent<Unit>());
         enemyHUD.setHUD(enemy.GetComponent<Unit>());
@@ -47,6 +49,7 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+        Debug.Log("All good here!");
         dialogueText.text = "Choose!";
     }
 
@@ -69,6 +72,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator Attack()
     {
 
+        Debug.Log("Start Attack");
         Vector3 p = player.GetComponent<Transform>().position;
         Vector3 e = enemy.GetComponent<Transform>().position;
 
@@ -78,20 +82,49 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
+        Debug.Log("Instantiating Prompt");
         GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x - 2.2f, player.transform.position.y + 1.3f, player.transform.position.z), Quaternion.identity);
         prompt.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
 
+        Debug.Log("Prompt instantiated");
+
+        bool isDead;
+        Debug.Log("Calling onQTE");
         prompt.GetComponent<QTESystem>().onQTE();
 
+        Debug.Log("Waiting");
+        yield return new WaitUntil(prompt.GetComponent<QTESystem>().CheckIfDone);
 
 
 
-        bool isDead = enemy.GetComponent<Unit>().takeDamage(player.GetComponent<Unit>().attack);
-        enemyHUD.setHUD(enemy.GetComponent<Unit>());
+        bool attackHits = prompt.GetComponent<QTESystem>().success;
+        Debug.Log("attack Hits: " + attackHits);
+        Destroy(prompt);
+        Debug.Log("End of testing");
 
-        dialogueText.text = enemy.GetComponent<Unit>().unitName + " recieved damage!";
+        if (attackHits)
+        {
+            isDead = enemy.GetComponent<Unit>().takeDamage(player.GetComponent<Unit>().attack);
+            enemyHUD.setHUD(enemy.GetComponent<Unit>());
 
-        yield return new WaitForSeconds(3);
+            dialogueText.text = enemy.GetComponent<Unit>().unitName + " recieved damage!";
+
+            yield return new WaitForSeconds(3);
+
+        }
+        else
+        {
+            isDead = false;
+            dialogueText.text = "Attack missed!";
+
+            yield return new WaitForSeconds(3);
+        }
+
+
+
+
+
+        
 
         player.GetComponent<Transform>().position = p;
         dialogueText.text = "";

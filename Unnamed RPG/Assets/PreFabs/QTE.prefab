@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: 
 --- !u!1 &5899354251010810370
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 8187686212592901560}
+  image: {fileID: 9059583709093446641}
+  success: 0
 --- !u!1 &6061102673815771783
 GameObject:
   m_ObjectHideFlags: 0
