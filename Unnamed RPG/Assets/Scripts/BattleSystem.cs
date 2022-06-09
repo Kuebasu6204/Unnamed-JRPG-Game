@@ -78,7 +78,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x - 2.2f, player.transform.position.y + 1.3f, player.transform.position.z), Quaternion.identity);
+        GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x - 2.2f, player.transform.position.y + 2.5f, player.transform.position.z), Quaternion.identity);
         prompt.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
 
 
@@ -163,7 +163,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x + 2.2f, player.transform.position.y + 1.3f, player.transform.position.z), Quaternion.identity);
+        GameObject prompt = Instantiate(qte, new Vector3(player.transform.position.x + 2.2f, player.transform.position.y + 2.5f, player.transform.position.z), Quaternion.identity);
         prompt.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
 
         prompt.GetComponent<QTESystem>().onQTE();
