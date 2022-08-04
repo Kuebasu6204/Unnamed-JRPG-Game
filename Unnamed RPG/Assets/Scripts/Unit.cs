@@ -1,27 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
     public string unitName;
     public int maxHealth;
     public int health;
     public int attack;
     public int heal;
+    public int speed;
+    public bool isActive = false;
+    public BattleHUD unitHUD;
+    public Button selectionButton;
+    
 
-    public bool takeDamage(int damage)
-    {
-        health = health - damage;
+    public abstract bool takeDamage(int damage);
+    public abstract void updateHUD();
 
-        if (health > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-            
-    }
 }

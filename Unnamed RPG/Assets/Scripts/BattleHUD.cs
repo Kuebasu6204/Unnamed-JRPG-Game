@@ -7,6 +7,7 @@ public class BattleHUD : MonoBehaviour
 {
     public Slider healthBar;
     public Text text;
+
     public void setHUD(Unit unit)
     {
 
@@ -14,4 +15,6 @@ public class BattleHUD : MonoBehaviour
         healthBar.value = unit.health;
         text.text = unit.unitName;
     }
+
+
 }

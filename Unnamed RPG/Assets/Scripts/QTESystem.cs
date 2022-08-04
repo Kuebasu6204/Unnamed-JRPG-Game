@@ -32,7 +32,6 @@ public class QTESystem : MonoBehaviour
         KeyCode key;
         int randomInput = Random.Range(1, 5);
 
-        Debug.Log(randomInput);
         if (randomInput == 1)
         {
             text.text = "W";

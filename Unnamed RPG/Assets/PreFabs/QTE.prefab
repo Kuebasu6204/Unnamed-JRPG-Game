@@ -107,7 +107,7 @@ RectTransform:
   m_GameObject: {fileID: 5899354251010810370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_Children:
   - {fileID: 7402204270155747197}
   m_Father: {fileID: 0}
@@ -171,6 +171,7 @@ MonoBehaviour:
   text: {fileID: 8187686212592901560}
   image: {fileID: 9059583709093446641}
   success: 0
+  isDone: 0
 --- !u!1 &6061102673815771783
 GameObject:
   m_ObjectHideFlags: 0
